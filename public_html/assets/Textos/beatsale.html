@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Texto</title>
+    <style>
+        body {
+            background-color: rgb(245, 93, 131);
+            color: rgb(0, 0, 0);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding-bottom: 50px; /* Añadir espacio en la parte inferior para el enlace "Volver" */
+        }
+        
+        .image-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            margin-bottom: 50px;
+            height: 200px; /* Altura fija para centrar verticalmente */
+        }
+        
+        .moving-images {
+            display: flex;
+            position: relative;
+            width: 1200px; /* Ajusta el ancho total de las imágenes */
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .moving-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 300px;
+            height: 200px;
+            margin: 0 10px;
+            opacity: 0;
+            animation-fill-mode: forwards;
+        }
+
+        .moving-image:nth-child(1) {
+            animation-name: moveImage1;
+            animation-duration: 5s;
+        }
+
+        .moving-image:nth-child(2) {
+            animation-name: moveImage2;
+            animation-duration: 5s;
+            animation-delay: 2.5s; /* Retraso de 2.5 segundos para la segunda imagen */
+        }
+
+        .moving-image:nth-child(3) {
+            animation-name: moveImage3;
+            animation-duration: 5s;
+            animation-delay: 5s; /* Retraso de 5 segundos para la tercera imagen */
+        }
+
+        .moving-image:nth-child(4) {
+            animation-name: moveImage4;
+            animation-duration: 5s;
+            animation-delay: 7.5s; /* Retraso de 7.5 segundos para la cuarta imagen */
+        }
+
+        @keyframes moveImage1 {
+            0% {
+                opacity: 0;
+                transform: translateX(-100%);
+                filter: blur(10px);
+            }
+            40% {
+                opacity: 1;
+                filter: blur(0);
+            }
+            60% {
+                transform: translateX(100%);
+                filter: blur(0);
+            }
+            100% {
+                opacity: 0;
+                transform: translateX(100%);
+                filter: blur(10px);
+            }
+        }
+
+        @keyframes moveImage2 {
+            0% {
+                opacity: 0;
+                transform: translateX(-100%);
+                filter: blur(10px);
+            }
+            40% {
+                opacity: 0;
+                filter: blur(10px);
+            }
+            50% {
+                opacity: 1;
+                filter: blur(0);
+            }
+            90% {
+                opacity: 1;
+                filter: blur(0);
+            }
+            100% {
+                opacity: 0;
+                transform: translateX(100%);
+                filter: blur(10px);
+            }
+        }
+
+        @keyframes moveImage3 {
+            0% {
+                opacity: 0;
+                transform: translateX(-100%);
+                filter: blur(10px);
+            }
+            40% {
+                opacity: 0;
+                filter: blur(10px);
+            }
+            50% {
+                opacity: 0;
+                filter: blur(10px);
+            }
+            60% {
+                opacity: 1;
+                filter: blur(0);
+            }
+            100% {
+                opacity: 0;
+                transform: translateX(100%);
+                filter: blur(10px);
+            }
+        }
+
+        @keyframes moveImage4 {
+            0% {
+                opacity: 0;
+                transform: translateX(-100%);
+                filter: blur(10px);
+            }
+            60% {
+                opacity: 0;
+                filter: blur(10px);
+            }
+            70% {
+                opacity: 1;
+                filter: blur(0);
+            }
+            100% {
+                opacity: 0;
+                transform: translateX(100%);
+                filter: blur(10px);
+            }
+        }
+
+        .volver {
+            position: fixed;
+            bottom: 20px; /* Ajustar la distancia desde la parte inferior */
+            right: 20px; /* Ajustar la distancia desde la derecha */
+            background-color: rgb(216, 60, 203); /* Cambiar el color del fondo */
+            color: white; /* Cambiar el color del texto a blanco */
+            padding: 10px 20px;
+            text-decoration: none;
+        }
+    </style>
+    <script>
+        function volver() {
+            history.go(-1); // Regresar a la página anterior
+        }
+    </script>
+</head>
+<body>
+    <a href="#" class="volver" onclick="volver();">Go to back</a>
+
+    <div class="image-container">
+        <div class="moving-images">
+            <img src="../../assets/Textos/Pop.jpg" alt="Pop" class="moving-image">
+            <img src="../../assets/Textos/Hip Hop.jpg" alt="Hip Hop" class="moving-image">
+            <img src="../../assets/Textos/Urban.jpg" alt="Urban" class="moving-image">
+            <img src="../../assets/Textos/House-trap.jpg" alt="House-trap" class="moving-image">
+        </div>
+    </div>
+</body>
+</html>
+

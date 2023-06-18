@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Texto</title>
+    <link rel="stylesheet" href="APlayer.min.css">
+    <style>
+        body {
+            background-image: url("../../assets/Textos/BeatmakerB.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+            color: rgb(224, 84, 84);
+            position: relative;
+            padding-bottom: 50px; /* Añadir espacio en la parte inferior para el enlace "Volver" */
+            text-align: center; /* Centrar el contenido en el cuerpo */
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .image-container {
+            margin: 0 10px;
+            position: relative;
+        }
+
+        .image-container img {
+            width: 205px;
+            height: 180px;
+            max-width: 100%;
+            height: auto;
+        }
+
+        .genre-text {
+            position: absolute;
+            bottom: -10px; /* Ajustar la posición vertical */
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 16px;
+            font-weight: bold;
+            white-space: nowrap; /* Evitar el salto de línea */
+        }
+
+        .pop-dance {
+            color: blue; /* Cambiar el color del texto para Pop/Dance music */
+        }
+
+        .hip-hop {
+            color: red; /* Cambiar el color del texto para Hip hop/Rap music */
+        }
+
+        .house-trap {
+            color: green; /* Cambiar el color del texto para House/trap music */
+        }
+
+        .urban-latin {
+            color: purple; /* Cambiar el color del texto para Urban/Latin music */
+        }
+
+        .volver {
+            position: fixed;
+            bottom: 20px; /* Ajustar la distancia desde la parte inferior */
+            right: 20px; /* Ajustar la distancia desde la derecha */
+            background-color: rgb(148, 143, 145); /* Cambiar el color del fondo */
+            color: rgb(223, 203, 203); /* Cambiar el color del texto a blanco */
+            padding: 10px 20px;
+            text-decoration: none;
+        }
+    </style>
+    <script src="APlayer.min.js"></script>
+    <script>
+        function volver() {
+            history.go(-1); // Regresar a la página anterior
+        }
+
+        const ap = new APlayer({
+            container: document.getElementById('aplayer'),
+            audio: [{
+                name: 'name',
+                artist: 'artist',
+                url: 'url.mp3',
+                cover: 'cover.jpg'
+            }]
+        });
+    </script>
+</head>
+<body>
+    <h1>Beats for Sale</h1>
+    <div class="container">
+        <div class="image-container">
+            <img src="../../assets/Textos/Pop Music.jpg" alt="Pop" style="width: 205px; height: 180px;">
+            <p class="genre-text pop-dance" style="color: rgb(157, 157, 209);">Pop/Dance music</p>
+        </div>
+        <div class="image-container">
+            <img src="../../assets/Textos/Hip hop Music.jpg" alt="Hip hop" style="width: 205px; height: 180px;">
+            <p class="genre-text hip-hop" style="color: rgb(212, 113, 113);">Hip hop/Rap music</p>
+        </div>
+        <div class="image-container">
+            <img src="../../assets/Textos/House Music.jpg" alt="House-trap" style="width: 205px; height: 180px;">
+            <p class="genre-text house-trap" style="color: rgb(156, 235, 182);">House/trap music</p>
+        </div>
+        <div class="image-container">
+            <img src="../../assets/Textos/Urban Music.jpg" alt="Urban" style="width: 205px; height: 180px;">
+            <p class="genre-text urban-latin" style="color: rgb(144, 245, 240);">Urban/Latin music</p>
+        </div>
+    </div>
+
+    <a href="#" class="volver" onclick="volver();">Go back</a>
+    <div id="aplayer"></div>
+</body>
+</html>
